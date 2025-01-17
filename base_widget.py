@@ -527,7 +527,7 @@ class BaseWidget(metaclass=ABCMeta):
 
     def generate_canvas(self, x, y, width, height):
         canvas_options = {
-            panel: True,
+            "panel": True,
         #    "backend": "software"
         }
         c = canvas.Canvas(x, y, width, height, **canvas_options)
