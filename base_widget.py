@@ -172,7 +172,7 @@ class BaseWidget(metaclass=ABCMeta):
                 self.canvas.blocks_mouse = True
                 self.canvas.register("mouse", self.on_mouse)
             else:
-                self.focus_canvas = canvas.Canvas(self.x, self.y, 200, self.font_size * 2)
+                self.focus_canvas = canvas.Canvas(self.x, self.y, 200, self.font_size * 2, panel=True)
                 self.focus_canvas.blocks_mouse = True
                 self.focus_canvas.register("draw", self.draw_focus_name)
                 self.focus_canvas.freeze()
@@ -527,6 +527,7 @@ class BaseWidget(metaclass=ABCMeta):
 
     def generate_canvas(self, x, y, width, height):
         canvas_options = {
+            panel: True,
         #    "backend": "software"
         }
         c = canvas.Canvas(x, y, width, height, **canvas_options)

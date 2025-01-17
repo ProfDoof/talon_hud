@@ -107,7 +107,7 @@ class HeadUpScreenOverlay(BaseWidget):
                 self.preferences.mark_changed = True
                 self.event_dispatch.request_persist_preferences()
                 
-            self.focus_canvas = canvas.Canvas(self.x, self.y, 200, self.font_size * 2)
+            self.focus_canvas = canvas.Canvas(self.x, self.y, 200, self.font_size * 2, panel=True)
             self.focus_canvas.blocks_mouse = True
             self.focus_canvas.register("draw", self.draw_focus_name)
             if not self.focused:
@@ -181,7 +181,7 @@ class HeadUpScreenOverlay(BaseWidget):
         for chunk_key in chunks:
             if chunk_key not in self.particle_canvases or self.particle_canvases[chunk_key] is None:
                 chunk_data = needed_chunks[chunk_key]
-                particle_canvas = canvas.Canvas(chunk_data[0], chunk_data[1], chunk_data[2], chunk_data[3])
+                particle_canvas = canvas.Canvas(chunk_data[0], chunk_data[1], chunk_data[2], chunk_data[3], panel=True)
                 particle_canvas.allows_capture = settings.get("user.talon_hud_allows_capture")
                 particle_canvas.register('draw', self.draw_particles)
                 self.particle_canvases[chunk_key] = particle_canvas

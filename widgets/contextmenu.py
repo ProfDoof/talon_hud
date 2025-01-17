@@ -66,7 +66,7 @@ class HeadUpContextMenu(LayoutWidget):
             # Copied over from layout widget enabled to make sure blocks_mouse setting isn"t changed        
             if self.mouse_enabled:
                 # Keep this canvas using the default backend to make clicks happen properly                
-                self.mouse_capture_canvas = canvas.Canvas(min(self.x, self.limit_x), min(self.y, self.limit_y), max(self.width, self.limit_width), max(self.height, self.limit_height))            
+                self.mouse_capture_canvas = canvas.Canvas(min(self.x, self.limit_x), min(self.y, self.limit_y), max(self.width, self.limit_width), max(self.height, self.limit_height), panel=True)            
                 self.mouse_capture_canvas.blocks_mouse = True
                 self.mouse_capture_canvas.register("mouse", self.on_mouse)
                 self.mouse_capture_canvas.freeze()
